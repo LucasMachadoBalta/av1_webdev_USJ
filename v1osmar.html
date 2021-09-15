@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello world com VueJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--
+            <h1>olá, {{ nome }}</h1>
+            <input type="text" id="nome" placeholder="digite seu nome" v-model="nome"/>
+            <button @click="digaOla()">confirma</button>
+
+            digaOla() {
+                        const mensagem = 'Oláááááá, ' + this.nome;
+                        alert(mensagem);
+                    }
+        -->
+        <div id="numeros-input">
+            <input type="number" id="number01" placeholder="digite 1º número" v-model="n1"/>
+            <input type="number" id="number02" placeholder="digite 2º número" v-model="n2"/>
+            <input type="number" id="number03" placeholder="digite 3º número" v-model="n3"/>
+            <input type="number" id="number04" placeholder="digite 4º número" v-model="n4"/>
+            <input type="number" id="number05" placeholder="digite 5º número" v-model="n5"/>            
+        </div>
+
+        <!-- <input>Array = {{ lista }}</input>	 -->
+	    
+	    <button @click="listaDeNumeros()">confirma</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    lista: [],
+                    n1: '',
+                    n2: '', 
+                    n3: '',
+                    n4: '',
+                    n5: '',
+                    minVal: '',
+                    maxVal: ''
+                }
+            },
+            methods: {
+
+                listaDeNumeros() {
+                const lista = [this.n1, this.n2, this.n3, this.n4, this.n5];
+                alert(lista);
+                
+                const maxVal = Math.max.apply(Math, lista);
+		        const minVal = Math.min.apply(Math, lista);
+                alert('minVal: ' + minVal);
+                alert('maxval: ' + maxVal);
+                }   
+            }
+        });
+    </script>
+   
+</body>
+</html>
